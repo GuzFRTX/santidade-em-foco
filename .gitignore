@@ -9,3 +9,10 @@ videos/*.mp4
 # Vídeos grandes armazenados externamente
 public/videos/Projetos/
 public/videos/*.avi
+
+# Arquivos locais e gerados
+output/
+docs/
+playwright-report/
+test-results/
+coverage/
