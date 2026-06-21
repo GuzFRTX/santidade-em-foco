@@ -1,30 +1,36 @@
 # Photography Portfolio Website
 
-## About
-This project is a photography portfolio website developed for a client, designed to showcase their work in a clean, modern, and visually appealing way.
+Portfolio fotografico de Guilherme Ribeiro reconstruido em Nuxt 3, Vue 3 e TypeScript.
 
-The goal was to create a professional online presence, highlighting photography projects while providing an intuitive and responsive user experience.
+## Scripts
 
-## Features
-- Responsive layout for desktop and mobile
-- Image gallery for showcasing photos
-- Contact page for client inquiries
-- Clean and modern design focused on visuals
+```bash
+npm install
+npm run dev
+npm test
+npm run build
+```
 
-## Technologies
-- HTML
-- CSS
-- JavaScript
+## Estrutura
 
-## Live
-(https://lhermefilms.netlify.app)
+- `src/pages`: rotas Nuxt (`/`, `/projetos`, `/contato`)
+- `src/layouts`: casca global com header, footer e textura visual
+- `src/components`: layout, secoes, galeria, animacao e UI
+- `src/data`: conteudo real do portfolio
+- `src/composables`: filtros, lightbox, Lenis, GSAP e formulario
+- `src/styles`: CSS global, animacoes e Lenis
+- `public/images` e `public/videos`: midia servida por URL publica
 
-## Preview
-(<img width="1910" height="943" alt="1" src="https://github.com/user-attachments/assets/74b6fb55-2b27-41c6-9aae-123b5392851b" />
-)
+## Identidade
 
-## Status
-Completed
+A reconstrucao preserva paleta e fonte do projeto anterior:
 
-## Notes
-This project was developed for a real client, focusing on usability, visual presentation, and responsiveness.
+- Fundo: `#0c0b09`
+- Texto: `#978f86`
+- Acento: `#b8aa96`
+- Branco: `#fdfaf6`
+- Fontes: `Bodoni Moda` e `Manrope`
+
+## Nota de midia
+
+As imagens e videos originais nao estavam no workspace local. Os caminhos foram mantidos em `src/data` apontando para `/images/...` e `/videos/...`; coloque os arquivos correspondentes em `public/images` e `public/videos`.

@@ -1,0 +1,19 @@
+<svg class="sf-monogram" viewBox="0 0 1184.000 860.000" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sf-title sf-desc">
+  <title id="sf-title">SF</title>
+  <desc id="sf-desc">Monograma do projeto Santidade em Foco usando a fonte CC-Fat-Regular convertida em paths.</desc>
+  <style>
+    .sf-monogram { color: #efe7da; overflow: visible; }
+    .sf-path {
+      fill: currentColor;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+    }
+  </style>
+  <g class="sf-glyphs" transform="translate(55.000 780.000) scale(1 -1)">
+    <path class="sf-path sf-letter-s" data-letter="S" d="M477 312Q498 259 490 202Q483 151 453 107Q421 60 371 31Q318 1 258 1Q171 1 105.0 58.0Q39 115 27 201Q27 206 31 206L221 229Q225 230 225 226Q228 215 237.0 207.5Q246 200 258 200Q275 200 288 219Q295 229 292 237Q290 241 287 242Q281 244 254 246Q211 250 185 257Q115 276 70 333Q25 392 25 466Q25 513 43 556Q61 598 93.0 630.5Q125 663 167 680Q211 699 258 699Q340 699 404 648Q464 599 484 524Q485 519 481 518L295 474Q291 474 290 477Q281 499 258 499Q244 499 234.5 489.5Q225 480 225 466Q225 453 238 449Q246 447 270 445Q326 441 359 428Q399 413 429.5 382.5Q460 352 477 312Z" transform="translate(0.000 0)" />
+    <path class="sf-path sf-letter-f" data-letter="F" d="M537 700Q542 700 542 695V504Q542 499 537 499L229 500Q225 500 225 496V404Q225 395 235 395H384Q388 395 391.0 392.0Q394 389 394 384V249Q394 245 391.0 242.0Q388 239 384 239H235Q225 239 225 229V10Q225 6 222.0 3.0Q219 0 215 0H35Q31 0 28.0 3.0Q25 6 25 10V690Q25 694 28.0 697.0Q31 700 35 700H125Z" transform="translate(507.000 0)" />
+  </g>
+</svg>

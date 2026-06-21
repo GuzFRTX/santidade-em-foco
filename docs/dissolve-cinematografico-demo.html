@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santidade em Foco — Dissolve Cinematográfico</title>
+
+  <style>
+    :root {
+      --shadow-grey: #3a3027;
+      --warm-beige: #efe7da;
+      --champagne-gold: #a78963;
+      --duration-out: 520ms;
+      --duration-in: 760ms;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--warm-beige);
+      color: #fff;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .demo {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--warm-beige);
+      isolation: isolate;
+    }
+
+    .page {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      will-change: opacity, transform, filter;
+      transform-origin: center;
+    }
+
+    .page--one {
+      background:
+        linear-gradient(90deg, rgba(42, 34, 28, 0.78), rgba(42, 34, 28, 0.08)),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
+    }
+
+    .page--two {
+      background:
+        linear-gradient(180deg, rgba(42, 34, 28, 0.12), rgba(42, 34, 28, 0.75)),
+        url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
+    }
+
+    .page__nav {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px clamp(24px, 5vw, 78px);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .page__brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .page__content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(28px, 6vw, 88px);
+    }
+
+    .page__kicker {
+      margin: 0 0 16px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .page h1 {
+      max-width: 900px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 8vw, 8rem);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+    }
+
+    .page p {
+      max-width: 600px;
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.7;
+    }
+
+    .demo__controls {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateX(-50%);
+    }
+
+    .demo__button {
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(58, 48, 39, 0.86);
+      color: var(--warm-beige);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .demo__button:hover {
+      transform: translateY(-2px);
+      background: rgba(58, 48, 39, 0.98);
+    }
+
+    .demo__button:disabled {
+      cursor: wait;
+      opacity: 0.6;
+    }
+
+    .demo__note {
+      position: fixed;
+      right: 24px;
+      bottom: 28px;
+      z-index: 20;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 700px) {
+      .page__nav {
+        padding: 22px;
+      }
+
+      .page__content {
+        padding: 24px;
+      }
+
+      .page h1 {
+        font-size: clamp(3.4rem, 17vw, 6rem);
+      }
+
+      .demo__note {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page {
+        filter: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="demo">
+    <article class="page page--one" id="pageOne">
+      <nav class="page__nav">
+        <span class="page__brand">Santidade em Foco</span>
+        <span>Projetos · Sobre · Contato</span>
+      </nav>
+
+      <div class="page__content">
+        <p class="page__kicker">Fotografia de casamento</p>
+        <h1>Histórias que permanecem.</h1>
+        <p>
+          Um olhar sensível sobre histórias, afetos e momentos que atravessam o tempo.
+        </p>
+      </div>
+    </article>
+
+    <article class="page page--two" id="pageTwo">
+      <nav class="page__nav">
+        <span class="page__brand">Santidade em Foco</span>
+        <span>Projetos · Sobre · Contato</span>
+      </nav>
+
+      <div class="page__content">
+        <p class="page__kicker">Coleção selecionada</p>
+        <h1>Amor em cada detalhe.</h1>
+        <p>
+          Imagens construídas com delicadeza, presença e atenção ao que existe de mais verdadeiro.
+        </p>
+      </div>
+    </article>
+
+    <div class="demo__controls">
+      <button class="demo__button" id="playButton" type="button">
+        Reproduzir dissolve
+      </button>
+    </div>
+
+    <span class="demo__note">Clique novamente para inverter as páginas</span>
+  </main>
+
+  <script>
+    const pageOne = document.getElementById("pageOne");
+    const pageTwo = document.getElementById("pageTwo");
+    const playButton = document.getElementById("playButton");
+
+    let showingFirstPage = true;
+    let isAnimating = false;
+
+    function prefersReducedMotion() {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+
+    function clearRunningAnimations() {
+      [pageOne, pageTwo].forEach((element) => {
+        element.getAnimations().forEach((animation) => animation.cancel());
+      });
+    }
+
+    function applyInitialState() {
+      clearRunningAnimations();
+
+      pageOne.style.cssText = "";
+      pageTwo.style.cssText = "";
+
+      pageOne.style.zIndex = showingFirstPage ? "2" : "1";
+      pageTwo.style.zIndex = showingFirstPage ? "1" : "2";
+
+      pageOne.style.opacity = showingFirstPage ? "1" : "0";
+      pageTwo.style.opacity = showingFirstPage ? "0" : "1";
+    }
+
+    async function playDissolve() {
+      if (isAnimating) return;
+
+      isAnimating = true;
+      playButton.disabled = true;
+
+      const currentPage = showingFirstPage ? pageOne : pageTwo;
+      const nextPage = showingFirstPage ? pageTwo : pageOne;
+
+      clearRunningAnimations();
+
+      currentPage.style.zIndex = "3";
+      nextPage.style.zIndex = "2";
+
+      if (prefersReducedMotion()) {
+        currentPage.style.opacity = "0";
+        nextPage.style.opacity = "1";
+        showingFirstPage = !showingFirstPage;
+        applyInitialState();
+        isAnimating = false;
+        playButton.disabled = false;
+        return;
+      }
+
+      /*
+        MOVIMENTO DE SAÍDA
+        - opacity: 1 -> 0
+        - blur: 0px -> 10px
+        - scale: 1 -> 1.015
+        - duração: 520ms
+      */
+      const leaveAnimation = currentPage.animate(
+        [
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            transform: "scale(1) translateY(0)"
+          },
+          {
+            opacity: 0,
+            filter: "blur(10px)",
+            transform: "scale(1.015) translateY(-4px)"
+          }
+        ],
+        {
+          duration: 520,
+          easing: "cubic-bezier(.45, 0, .55, 1)",
+          fill: "forwards"
+        }
+      );
+
+      /*
+        MOVIMENTO DE ENTRADA
+        - começa após 170ms, criando uma pequena sobreposição
+        - opacity: 0 -> 1
+        - blur: 8px -> 0px
+        - scale: 1.015 -> 1
+        - y: 15px -> 0
+        - duração: 760ms
+      */
+      nextPage.style.opacity = "0";
+      nextPage.style.filter = "blur(8px)";
+      nextPage.style.transform = "scale(1.015) translateY(15px)";
+
+      await new Promise((resolve) => setTimeout(resolve, 170));
+
+      const enterAnimation = nextPage.animate(
+        [
+          {
+            opacity: 0,
+            filter: "blur(8px)",
+            transform: "scale(1.015) translateY(15px)"
+          },
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            transform: "scale(1) translateY(0)"
+          }
+        ],
+        {
+          duration: 760,
+          easing: "cubic-bezier(.22, 1, .36, 1)",
+          fill: "forwards"
+        }
+      );
+
+      await Promise.all([
+        leaveAnimation.finished,
+        enterAnimation.finished
+      ]);
+
+      showingFirstPage = !showingFirstPage;
+      applyInitialState();
+
+      isAnimating = false;
+      playButton.disabled = false;
+    }
+
+    playButton.addEventListener("click", playDissolve);
+
+    applyInitialState();
+  </script>
+</body>
+</html>
