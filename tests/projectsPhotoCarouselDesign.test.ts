@@ -23,4 +23,14 @@ describe('projects photo carousel design', () => {
     expect(source).toContain('@media (prefers-reduced-motion: reduce)');
     expect(source).toContain('scroll-behavior: auto');
   });
+
+  it('keeps the gallery title inside narrow mobile viewports', () => {
+    const mobileStyles = source.slice(
+      source.indexOf('@media (max-width: 760px)'),
+      source.indexOf('@media (prefers-reduced-motion: reduce)')
+    );
+
+    expect(mobileStyles).toContain('font-size: clamp(38px, 12.5vw, 58px)');
+    expect(mobileStyles).not.toContain('font-size: clamp(38px, 14vw, 58px)');
+  });
 });

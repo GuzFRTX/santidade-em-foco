@@ -274,7 +274,7 @@ onBeforeUnmount(() => {
 
   .photo-gallery__header h2 {
     max-width: 10ch;
-    font-size: clamp(38px, 14vw, 58px);
+    font-size: clamp(38px, 12.5vw, 58px);
     text-align: left;
   }
 
